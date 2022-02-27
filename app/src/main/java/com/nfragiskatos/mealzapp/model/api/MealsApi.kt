@@ -1,6 +1,6 @@
 package com.nfragiskatos.mealzapp.model.api
 
-import com.nfragiskatos.mealzapp.model.response.MealsCategoriesResponse
+import com.nfragiskatos.mealzapp.model.response.MealCategoriesResponse
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
@@ -17,12 +17,12 @@ class MealsWebService {
         api = retrofit.create(MealsApi::class.java)
     }
 
-    suspend fun getMealsCategories(): MealsCategoriesResponse {
+    suspend fun getMealsCategories(): MealCategoriesResponse {
         return api.getMealsCategories()
     }
 
     interface MealsApi {
         @GET("categories.php")
-        suspend fun getMealsCategories(): MealsCategoriesResponse
+        suspend fun getMealsCategories(): MealCategoriesResponse
     }
 }
