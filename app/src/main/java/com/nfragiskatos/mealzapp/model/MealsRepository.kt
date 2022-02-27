@@ -1,8 +1,11 @@
 package com.nfragiskatos.mealzapp.model
 
+import com.nfragiskatos.mealzapp.model.api.MealsWebService
 import com.nfragiskatos.mealzapp.model.response.MealsCategoriesResponse
 
-class MealsRepository {
+class MealsRepository(private val webService: MealsWebService = MealsWebService()) {
 
-    fun getMeals(): MealsCategoriesResponse = MealsCategoriesResponse(arrayListOf())
+    suspend fun getMealsCategories(): MealsCategoriesResponse {
+        return webService.getMealsCategories()
+    }
 }

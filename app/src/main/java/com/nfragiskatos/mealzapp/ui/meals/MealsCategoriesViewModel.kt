@@ -6,7 +6,7 @@ import com.nfragiskatos.mealzapp.model.response.MealsCategoryResponse
 
 class MealsCategoriesViewModel(private val repository: MealsRepository = MealsRepository()) : ViewModel() {
 
-    fun getMealsCategories(): List<MealsCategoryResponse> {
-        return repository.getMeals().categories
+    suspend fun getMealsCategories(): List<MealsCategoryResponse> {
+        return repository.getMealsCategories().categories
     }
 }
